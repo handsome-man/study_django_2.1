@@ -16,7 +16,8 @@ def index(request):
 
 def detail(request, question_id):
     # get_list_or_404()函数的工作原理和get_object_or_404()一样，除了get()函数被换成了filter()函数。
-    question = get_list_or_404(Question, pk=question_id)
+    # question = get_list_or_404(Question, pk=question_id)
+    question = Question.objects.first()
     return render(request, 'polls/detail.html', {'question': question})
 
 
