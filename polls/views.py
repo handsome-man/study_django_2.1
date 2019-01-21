@@ -30,6 +30,7 @@ class IndexView(generic.ListView):
     template_name = 'polls/index.html'
     context_object_name = 'latest_question_list'
 
+    # 获取此视图的项目列表。这必须是可迭代的，并且可以是查询集（其中将启用查询集特定的行为）。
     def get_queryset(self):
         """Return the last five published questions."""
         return Question.objects.order_by('-pub_date')[:5]
