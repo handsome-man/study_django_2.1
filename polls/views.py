@@ -6,6 +6,7 @@ from django.http import HttpResponse
 from django.template import loader
 from django.urls import reverse
 from django.views import generic
+from django.utils import timezone
 
 from .models import Question, Choice
 
@@ -33,7 +34,9 @@ class IndexView(generic.ListView):
     # 获取此视图的项目列表。这必须是可迭代的，并且可以是查询集（其中将启用查询集特定的行为）。
     def get_queryset(self):
         """Return the last five published questions."""
-        return Question.objects.order_by('-pub_date')[:5]
+        return Question.objects.filter(
+            pub_date__lte=timezone.now()
+        ).order_by('-pub_date')[:5]
 
 
 class DetailView(generic.DetailView):
