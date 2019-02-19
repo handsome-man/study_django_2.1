@@ -21,7 +21,7 @@ class ChoiceInline(admin.TabularInline):
 
 class QuestionAdmin(admin.ModelAdmin):
     # 在对象的更改列表页面上显示的字段名称元组
-    list_display = ('question_text', 'pub_date')
+    list_display = ('question_text', 'pub_date', 'was_published_recently')
 
     fieldsets = [
         ('Question Content', {'fields': ['question_text'], 'classes': ['collapse']}),
