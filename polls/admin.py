@@ -24,6 +24,8 @@ class QuestionAdmin(admin.ModelAdmin):
     list_display = ('question_text', 'pub_date', 'was_published_recently')
     # 添加过滤器
     list_filter = ['pub_date']
+    # 添加搜索功能
+    search_fields = ['question_text']
 
     fieldsets = [
         ('Question Content', {'fields': ['question_text'], 'classes': ['collapse']}),
