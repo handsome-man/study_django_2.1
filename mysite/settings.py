@@ -61,8 +61,7 @@ ROOT_URLCONF = 'mysite.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'templates')]
-        ,
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         # 让DjangoTemplates在每个INSTALLED_APPS文件夹中寻找"templates"
         'APP_DIRS': True,
         'OPTIONS': {
